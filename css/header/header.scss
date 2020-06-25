@@ -19,9 +19,13 @@ header {
   align-items: center;
   position: relative;
 
+  .logo-block {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
 
-
-  .login-block, .logo-block {
+  .login-block {
     display: flex;
     align-items: center;
     height: 100%;
@@ -37,25 +41,25 @@ header {
     }
 
     &:hover .account-form {
-      opacity: 1;
-      z-index: 1;
+      display: flex;
+      position: absolute;
+      right: 0;
+      top: 80px;
+      animation: show .3s 1;
+      animation-fill-mode: forwards;
+      z-index: 9999;
     }
   }
 
   .account-form {
-    display: flex;
+    display: none;
     flex: 0 0 289px;
     max-width: 289px;
-    position: absolute;
     @include shadows;
     background: $white-bg;
     padding: 20px 24px 27px 24px;
-    right: 0;
-    top: 62px;
     align-items: flex-start;
     flex-wrap: wrap;
-    opacity: 0;
-    transition: .3s;
 
     .account-info {
       @include defaultBlock;
@@ -161,5 +165,14 @@ header {
         }
       }
     }
+  }
+}
+
+@keyframes show{
+  0%{
+    opacity:0;
+  }
+  100% {
+    opacity:1;
   }
 }

@@ -58,38 +58,43 @@ header {
   align-items: center;
   position: relative;
 }
-.container .login-block, .container .logo-block {
+.container .logo-block {
   display: flex;
   align-items: center;
   height: 100%;
 }
-.container .login-block:hover, .container .logo-block:hover {
+.container .login-block {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.container .login-block:hover {
   cursor: url(images/Shape.cur), pointer;
 }
-.container .login-block .login, .container .logo-block .login {
+.container .login-block .login {
   font-weight: bold;
   margin-right: 15px;
   margin-bottom: 3px;
 }
-.container .login-block:hover .account-form, .container .logo-block:hover .account-form {
-  opacity: 1;
-  z-index: 1;
+.container .login-block:hover .account-form {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 80px;
+  animation: show .3s 1;
+  animation-fill-mode: forwards;
+  z-index: 9999;
 }
 .container .account-form {
-  display: flex;
+  display: none;
   flex: 0 0 289px;
   max-width: 289px;
-  position: absolute;
   box-shadow: 0px 1.4945px 1.53979px rgba(0, 0, 0, 0.02), 0px 4.13211px 4.25733px rgba(0, 0, 0, 0.025), 0px 9.94853px 10.25px rgba(0, 0, 0, 0.03), 0px 33px 34px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   background: #ffffff;
   padding: 20px 24px 27px 24px;
-  right: 0;
-  top: 62px;
   align-items: flex-start;
   flex-wrap: wrap;
-  opacity: 0;
-  transition: .3s;
 }
 .container .account-form .account-info {
   display: flex;
@@ -186,6 +191,14 @@ header {
   padding-left: 32px;
 }
 
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .content-block-container {
   display: flex;
   flex: 0 0 100%;
@@ -208,6 +221,7 @@ header {
   max-width: calc(100% - 240px);
   height: 100%;
   background: #FBFBFB;
+  margin-bottom: 55px;
 }
 .content-block-container .content-block .content {
   display: flex;
