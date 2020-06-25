@@ -1,0 +1,50 @@
+$text-color: #3E445B;
+$white-text-color: #ffffff;
+$white-bg: #ffffff;
+$gray-bg: #FBFBFB;
+$footer-bg: #F3F4F4;
+$transaction-title-color: #4F4F4F;
+$green-color: #27AE60;
+$text-color-opacity: rgba(62, 68, 91, 0.5);
+
+
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background: $gray-bg;
+}
+
+body * {
+  box-sizing: border-box;
+  font-family: 'Gilroy', sans-serif;
+}
+
+body {
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 17px;
+    color: $text-color;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.page-container {
+  max-width: 1600px;
+  display: flex;
+  flex: 0 0 100%;
+  justify-content: center;
+}
+
+.active {
+  opacity: 1!important;
+}

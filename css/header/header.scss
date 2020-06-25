@@ -1,0 +1,158 @@
+header {
+  box-shadow: 0px 1.4945px 1.53979px rgba(0, 0, 0, 0.02), 0px 9.94853px 10.25px rgba(0, 0, 0, 0.03);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $white-bg;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.container {
+  display: flex;
+  flex: 0 0 100%;
+  max-width: 1480px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  .login-block {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      @include cursorPointer;
+    }
+
+    .login {
+      font-weight: bold;
+      margin-right: 15px;
+      margin-bottom: 3px;
+    }
+
+    &:hover + .account-form {
+      opacity: 1;
+    }
+  }
+
+  .account-form {
+    display: flex;
+    flex: 0 0 289px;
+    max-width: 289px;
+    position: absolute;
+    @include shadows;
+    background: $white-bg;
+    padding: 20px 24px 27px 24px;
+    right: 0;
+    top: 62px;
+    z-index: 1;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    opacity: 0;
+    transition: .3s;
+
+    .account-info {
+      @include defaultBlock;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(0,0,0,0.11);
+      margin-bottom: 28px;
+
+      .account-form-name {
+        display: flex;
+        position: relative;
+        margin-bottom: 8px;
+
+        p {
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 24px;
+          width: 100%;
+          overflow: hidden;
+          display: block;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .account-form-link {
+        position: relative;
+        display: flex;
+        flex: 0 0 85%;
+        max-width: 85%;
+        margin-bottom: 12px;
+
+        &:after {
+          content: '';
+          display: block;
+          width: 16px;
+          height: 16px;
+          background-position: center;
+          position: absolute;
+          right: -30px;
+          top: -2px;
+          background: url(../images/copy_basic.png) no-repeat;
+          background-size: contain;
+        }
+
+        p {
+          display: block;
+          overflow: hidden;
+          font-size: 16px;
+          line-height: 19px;
+          opacity: 0.45;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    .account-properties {
+      @include defaultBlock;
+      flex-wrap: wrap;
+
+      .properties {
+        position: relative;
+        @include defaultBlock;
+        margin-bottom: 23px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &.key:before,
+        &.pin:before,
+        &.logout:before {
+          content: '';
+          display: block;
+          width: 24px;
+          height: 24px;
+          background-position: center;
+          position: absolute;
+          left: 0;
+          top: -4px;
+        }
+
+        &.key:before {
+          background: url(../images/key.png) no-repeat;
+          background-size: contain;
+        }
+
+        &.pin:before {
+          background: url(../images/pin-code.png) no-repeat;
+          background-size: contain;
+        }
+
+        &.logout:before {
+          background: url(../images/logout.png) no-repeat;
+          background-size: contain;
+        }
+
+        p {
+          font-weight: bold;
+          padding-left: 32px;
+        }
+      }
+    }
+  }
+}
