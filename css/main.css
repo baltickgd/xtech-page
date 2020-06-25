@@ -25,9 +25,12 @@ body a {
 
 .page-container {
   max-width: 1600px;
+  min-width: 1480px;
   display: flex;
   flex: 0 0 100%;
   justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
 }
 
 .active {
@@ -55,20 +58,22 @@ header {
   align-items: center;
   position: relative;
 }
-.container .login-block {
+.container .login-block, .container .logo-block {
   display: flex;
   align-items: center;
+  height: 100%;
 }
-.container .login-block:hover {
+.container .login-block:hover, .container .logo-block:hover {
   cursor: url(images/Shape.cur), pointer;
 }
-.container .login-block .login {
+.container .login-block .login, .container .logo-block .login {
   font-weight: bold;
   margin-right: 15px;
   margin-bottom: 3px;
 }
-.container .login-block:hover + .account-form {
+.container .login-block:hover .account-form, .container .logo-block:hover .account-form {
   opacity: 1;
+  z-index: 1;
 }
 .container .account-form {
   display: flex;
@@ -81,7 +86,6 @@ header {
   padding: 20px 24px 27px 24px;
   right: 0;
   top: 62px;
-  z-index: 1;
   align-items: flex-start;
   flex-wrap: wrap;
   opacity: 0;
@@ -148,6 +152,9 @@ header {
   flex: 0 0 100%;
   max-width: 100%;
   margin-bottom: 23px;
+}
+.container .account-form .account-properties .properties:hover {
+  cursor: pointer;
 }
 .container .account-form .account-properties .properties:last-child {
   margin-bottom: 0;
@@ -708,6 +715,37 @@ header {
   font-weight: bold;
   color: rgba(62, 68, 91, 0.5);
 }
+.content-block-container .transaction-information .navigation-block {
+  display: flex;
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.content-block-container .transaction-information .navigation-block .navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.content-block-container .transaction-information .navigation-block .navigation:before {
+  content: '<';
+  font-size: 14px;
+  line-height: 16px;
+  cursor: pointer;
+}
+.content-block-container .transaction-information .navigation-block .navigation:after {
+  content: '>';
+  font-size: 14px;
+  line-height: 16px;
+  cursor: pointer;
+}
+.content-block-container .transaction-information .navigation-block .navigation p {
+  font-weight: bold;
+  margin: 0 7px;
+  opacity: 0.5;
+  cursor: pointer;
+}
 
 .value-block-cbs .value-block {
   margin-bottom: 13px;
@@ -716,4 +754,7 @@ header {
 footer {
   height: 60px;
   background: #F3F4F4;
+  display: flex;
+  flex: 0 0 100%;
+  max-width: 100%;
 }

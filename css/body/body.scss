@@ -606,6 +606,40 @@
 
     }
 
+    .navigation-block {
+      @include defaultBlock;
+      margin-top: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .navigation {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        &:before {
+          content: '<';
+          font-size: 14px;
+          line-height: 16px;
+          cursor: pointer;
+        }
+
+        &:after {
+          content: '>';
+          font-size: 14px;
+          line-height: 16px;
+          cursor: pointer;
+        }
+
+        p {
+          font-weight: bold;
+          margin: 0 7px;
+          opacity: 0.5;
+          cursor: pointer;
+        }
+      }
+    }
+
   }
 }
 
