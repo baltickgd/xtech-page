@@ -2,6 +2,8 @@
   @include defaultBlock;
   padding-top: 80px;
   height: 100%;
+  flex-wrap: wrap;
+
 
   .aside-block {
     display: flex;
@@ -11,6 +13,30 @@
     border-right: 1px solid rgba(62, 68, 91, 0.1);
     border-radius: 8px;
     justify-content: flex-end;
+
+    @include max-width(768px) {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+
+      &.show {
+        animation: show .3s 1;
+        animation-fill-mode: forwards;
+        z-index: 9999;
+        height: 100%;
+        left: 0;
+        width: 100%;
+      }
+
+      &.hide {
+        animation: hide .3s 1;
+        animation-fill-mode: forwards;
+        z-index: 9999;
+        height: 100%;
+        left: 0;
+        width: 100%;
+      }
+    }
   }
 
   .content-block {
@@ -21,6 +47,11 @@
     background: $gray-bg;
     margin-bottom: 55px;
 
+    @include max-width(768px) {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
 
     .content {
       display: flex;
@@ -30,6 +61,19 @@
       padding-right: 60px;
       margin-top: 40px;
       align-items: flex-start;
+
+      @include max-width(1480px) {
+        padding-left: 15px;
+      }
+
+      @include max-width(1200px) {
+        padding-right: 30px;
+        flex-wrap: wrap;
+      }
+
+      @include max-width(768px) {
+       padding: 0 30px;
+      }
     }
   }
 
@@ -49,9 +93,33 @@
         display: flex;
         margin-bottom: 37px;
         position: relative;
+
+        &.mobile-menu-close {
+          display: none;
+          @include max-width(768px) {
+            display: flex;
+          }
+
+          p {
+            &:before {
+              content: '';
+              display: block;
+              width: 24px;
+              height: 24px;
+              background: url(../images/close.png) no-repeat;
+              background-size: contain;
+              background-position: center;
+              position: absolute;
+              left: -31px;
+              top: -2px;
+            }
+          }
+
+        }
+
       }
 
-      a {
+      a, p {
         opacity: .3;
         color: $text-color;
         transition: .2s linear;
@@ -118,10 +186,18 @@
 
   .account-information-block {
     display: flex;
-    flex: 0 0 100%;
-    max-width: 465px;
+    flex: 0 0 35%;
+    max-width: 35%;
     flex-wrap: wrap;
     align-items: flex-start;
+
+    @include max-width(1200px) {
+      flex: 0 0 100%;
+      max-width: 100%;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      align-items: initial;
+    }
 
     .account-block {
       display: flex;
@@ -169,6 +245,7 @@
           font-size: 20px;
           line-height: 24px;
           position: relative;
+          padding-right: 30px;
 
           &:after {
             content: '';
@@ -195,31 +272,82 @@
       flex-wrap: wrap;
       margin-bottom: 16px;
 
+      @include max-width(1200px) {
+        flex: 0 0 48%;
+        max-width: 48%;
+        align-items: flex-start;
+      }
+
       .value-block {
         @include defaultBlock;
         justify-content: space-between;
+        align-items: flex-start;
+
+        @include max-width(1200px) {
+          flex-wrap: wrap;
+        }
 
         .value {
           font-weight: bold;
           font-size: 46px;
           line-height: 56px;
 
+          @include max-width(1600px) {
+            font-size: 40px;
+            line-height: 50px;
+          }
+
+          @include max-width(1480px) {
+            display: flex;
+            flex-wrap: wrap;
+          }
+
+          @include max-width(1200px) {
+            font-size: 30px;
+            line-height: 40px;
+          }
+
+          @include max-width(992px) {
+            width: 100%;
+            order: 2;
+          }
+
           span {
             opacity: .3;
             font-size: 37px;
             line-height: 47px;
+
+            @include max-width(1600px) {
+              font-size: 31px;
+              line-height: 41px;
+            }
+
+            @include max-width(1480px) {
+              width: 100%;
+            }
+
+            @include max-width(1200px) {
+              font-size: 21px;
+              line-height: 31px;
+            }
           }
         }
 
         .value-img {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           margin-top: 5px;
+
+          @include max-width(992px) {
+            order: 1;
+            margin-bottom: 10px;
+          }
         }
       }
 
       .lock-unlock {
         @include defaultBlock;
+        flex-wrap: wrap;
 
         .lock, .unlock {
           position: relative;
@@ -244,6 +372,10 @@
 
         .unlock {
           margin-right: 43px;
+
+          @include max-width(1200px) {
+            margin-right: auto;
+          }
 
           &:before {
             background-image: url(../images/unlocked.png);
@@ -272,10 +404,18 @@
       padding: 24px 25px 28px 24px;
       flex-wrap: wrap;
 
+      @include max-width(1200px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
 
       .resources {
         flex-wrap: wrap;
         display: flex;
+        @include max-width(1200px) {
+          justify-content: space-between;
+        }
 
          .resources-title {
           opacity: 0.5;
@@ -287,6 +427,20 @@
           @include defaultBlock;
           align-items: center;
           margin-bottom: 12px;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+
+          @include max-width(1200px) {
+            flex: 0 0 33%;
+            max-width: 33%;
+            margin-bottom: 0;
+          }
+
+          @include max-width(992px) {
+            flex: 0 0 48%;
+            max-width: 48%;
+            margin-bottom: 12px;
+          }
 
           &:last-child {
             margin-bottom: 0;
@@ -296,9 +450,14 @@
             font-weight: bold;
             font-size: 20px;
             line-height: 24px;
-            margin-right: 36px;
             width: 52px;
             margin-bottom: 6px;
+            margin-right: 25px;
+
+            @include max-width(1480px) {
+              width: 100%;
+              margin-right: 0;
+            }
           }
 
           .resources-graph-block {
@@ -307,8 +466,14 @@
 
 
             .resources {
-              display: flex;
-              flex-wrap: wrap;
+              flex: 0 0 calc(100% - 64px);
+              max-width: calc(100% - 64px);
+
+              @include max-width(1200px) {
+                flex: 0 0 calc(100% - 96px);
+                max-width: calc(100% - 96px);
+                align-items: center;
+              }
 
               .percent {
                 font-weight: bold;
@@ -340,10 +505,22 @@
 
   .transaction-information {
     display: flex;
-    flex: 0 0 calc(100% - 525px);
-    max-width: calc(100% - 525px);
-    margin-left: 55px;
+    flex: 0 0 calc(65% - 60px);
+    max-width: calc(65% - 60px);
+    margin-left: 60px;
     flex-wrap: wrap;
+
+    @include max-width(1480px) {
+      flex: 0 0 calc(65% - 30px);
+      max-width: calc(65% - 30px);
+      margin-left: 30px;
+    }
+
+    @include max-width(1200px) {
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-left: 0;
+    }
 
     .transaction-title {
       font-weight: bold;
@@ -364,12 +541,19 @@
         right: 0;
         top: -31px;
 
+        @include max-width(1480px) {
+          top: -55px;
+        }
+
+        @include max-width(1200px) {
+          top: -31px;
+        }
+
+        @include max-width(1200px) {
+          top: -55px;
+        }
+
         .inn-btn {
-
-          &:hover {
-            cursor: pointer;
-          }
-
           margin-right: 20px;
           padding: 10.5px 20px 10.5px 43px;
           background: linear-gradient(22.88deg, #FFA300 31.27%, #FFD1AA 100%);
@@ -377,11 +561,32 @@
           border-radius: 29.7619px;
           position: relative;
 
+          &:after {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 29.7619px;
+            background: linear-gradient(90deg, rgba(255,163,0,1) 0%, rgba(230,69,0,1) 100%);
+            transition: opacity 0.5s ease-out;
+            z-index: 2;
+            opacity: 0;
+          }
+
+          &:hover:after {
+            opacity: 1;
+            cursor: pointer;
+          }
+
           a {
+            position: relative;
             font-weight: bold;
             color: $text-color;
             font-size: 14px;
             line-height: 17px;
+            z-index: 5;
 
             &:before {
               content: '';
@@ -390,29 +595,47 @@
               height: 24px;
               background: url(../images/wallet_out.png);
               position: absolute;
-              left: 12px;
-              top: 9px;
+              left: -29px;
+              top: -3px;
             }
           }
         }
 
         .receive-btn {
 
-          &:hover {
-            cursor: pointer;
-          }
-
           padding: 10.5px 20px 10.5px 43px;
           background: #5D6171;
           box-shadow: 0px 0px 0.892857px rgba(112, 112, 112, 0.12), 0px 1.19048px 1.78571px rgba(112, 112, 112, 0.18), 0px 2.67857px 4.16667px rgba(112, 112, 112, 0.2), 0px 4.7619px 8.92857px rgba(112, 112, 112, 0.3);
           border-radius: 29.7619px;
           position: relative;
+          z-index: 1;
+
+          &:after {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 29.7619px;
+            background: linear-gradient(90deg, rgba(93,97,113,1) 0%, rgba(0,0,0,1) 100%);
+            transition: opacity 0.5s ease-out;
+            z-index: 2;
+            opacity: 0;
+          }
+
+          &:hover:after {
+            cursor: pointer;
+            opacity: 1;
+          }
 
           a {
+            position: relative;
             font-weight: bold;
             color: $white-text-color;
             font-size: 14px;
             line-height: 17px;
+            z-index: 5;
 
             &:before {
               content: '';
@@ -421,8 +644,8 @@
               height: 24px;
               background: url(../images/wallet_inn.png);
               position: absolute;
-              left: 12px;
-              top: 9px;
+              left: -29px;
+              top: -3px;
             }
           }
         }
@@ -450,6 +673,7 @@
           opacity: .3;
           position: relative;
           margin-right: 24px;
+          cursor: pointer;
 
           &:last-child{
             margin-right: 0;
@@ -458,19 +682,25 @@
           &.active:after {
             content: '';
             position: absolute;
-            width: 18px;
+            width: 100%;
             height: 3px;
             background: #F8A303;
             border-radius: 5px;
             transform: matrix(-1, 0, 0, 1, 0, 0);
-            bottom: -12px;
+            bottom: -10px;
             left: 0;
+            transition: .3s;
           }
         }
       }
 
       .transaction-rank {
-        margin-right: 80px;
+        margin-right: 10%;
+        width: 170px;
+
+        @include max-width(992px) {
+          width: 120px;
+        }
       }
     }
 
@@ -483,18 +713,28 @@
 
       .table-titles {
         @include defaultBlock;
-        margin-bottom: 20px;
+        margin-bottom: 6px;
 
         .value-rank {
-          margin-right: 21px;
+          margin-right: 2.5%;
+          width: 33px;
+          display: flex;
+          justify-content: center;
         }
 
         .value-time {
-          margin-right: 154px;
+          width: 120px;
+          margin-right: 12%;
         }
 
         .value-name {
-          margin-right: 220px;
+          width: 120px;
+          margin-right: auto;
+        }
+
+        .value-balance {
+          width: 120px;
+          text-align: center;
         }
 
         p {
@@ -517,7 +757,9 @@
 
 
         .table-value-rank {
-          margin-right: 32px;
+          margin-right: 2.5%;
+          width: 33px;
+          display: flex;
 
           i.inn {
             width: 24px;
@@ -539,8 +781,9 @@
         .table-value-date-time {
           display: flex;
           align-items: center;
-          margin-right: 80px;
           white-space: nowrap;
+          width: 120px;
+          margin-right: 12%;
 
           p {
             font-family: 'Roboto', sans-serif;
@@ -556,7 +799,9 @@
         .table-value-name {
           display: flex;
           align-items: center;
-          margin-right: 184px;
+          width: 120px;
+          margin-right: auto;
+          margin-left: -27px;
 
           .acc-avatar {
             display: block;
@@ -582,24 +827,32 @@
         .table-value-balance {
           display: flex;
           align-items: center;
+          width: 120px;
+
+
+          p {
+            width: 60%;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            text-align: right;
+          }
             &.inn {
               p {
-                font-family: 'Roboto', sans-serif;
-                font-weight: bold;
                 color:$green-color;
               }
             }
 
             &.out {
               p {
-                font-weight: bold;
                 color: $text-color;
               }
             }
+
             span {
               font-size: 14px;
               line-height: 16px;
               font-weight: bold;
+              width: 40%;
               color: $text-color-opacity;
             }
         }
@@ -646,4 +899,23 @@
 
 .value-block-cbs .value-block{
   margin-bottom: 13px;
+}
+
+.mobile-menu-btn {
+  display: none;
+
+  @include max-width(768px) {
+    display: flex;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .menu {
+    width: 30px;
+    height: 30px;
+    background: url(../images/open-menu.png) no-repeat;
+    background-size: contain;
+    margin: 20px 30px;
+    display: flex;
+  }
 }

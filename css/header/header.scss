@@ -11,13 +11,20 @@ header {
 }
 
 .container {
-  display: flex;
-  flex: 0 0 100%;
-  max-width: 1480px;
+  @include defaultBlock;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  padding: 0 60px;
+
+  @include max-width(1200px) {
+    padding-right: 30px;
+  }
+
+  @include max-width(768px) {
+    padding: 0 30px;
+  }
 
   .logo-block {
     display: flex;
@@ -39,20 +46,13 @@ header {
       margin-right: 15px;
       margin-bottom: 3px;
     }
-
-    &:hover .account-form {
-      display: flex;
-      position: absolute;
-      right: 0;
-      top: 80px;
-      animation: show .3s 1;
-      animation-fill-mode: forwards;
-      z-index: 9999;
-    }
   }
 
   .account-form {
-    display: none;
+    display: flex;
+    position: absolute;
+    right: 60px;
+    top: 80px;
     flex: 0 0 289px;
     max-width: 289px;
     @include shadows;
@@ -60,6 +60,31 @@ header {
     padding: 20px 24px 27px 24px;
     align-items: flex-start;
     flex-wrap: wrap;
+    visibility: hidden;
+
+    &.show {
+      position: absolute;
+      right: 60px;
+      top: 80px;
+      animation: show .3s 1;
+      animation-fill-mode: forwards;
+      z-index: 9999;
+
+      @include max-width(992px) {
+        right: 30px;
+      }
+    }
+
+    &.hide {
+      animation: hide .3s 1;
+      animation-fill-mode: forwards;
+    }
+
+    @include max-width(992px) {
+      flex: 0 0 189px;
+      max-width: 189px;
+      right: 30px;
+    }
 
     .account-info {
       @include defaultBlock;
@@ -80,6 +105,11 @@ header {
           overflow: hidden;
           display: block;
           text-overflow: ellipsis;
+
+          @include max-width(992px) {
+            font-size: 16px;
+            line-height: 20px;
+          }
         }
       }
 
@@ -165,14 +195,5 @@ header {
         }
       }
     }
-  }
-}
-
-@keyframes show{
-  0%{
-    opacity:0;
-  }
-  100% {
-    opacity:1;
   }
 }

@@ -52,6 +52,9 @@
             </div>
         </header>
         <div class="content-block-container">
+            <div class="mobile-menu-btn">
+                <i class="menu"></i>
+            </div>
             <div class="aside-block">
                 <aside>
                     <nav>
@@ -66,6 +69,9 @@
                         </div>
                         <div class="nav-container">
                             <a class="followers" href="#">Followers</a>
+                        </div>
+                        <div class="nav-container mobile-menu-close">
+                            <p class="close-mobile">Close menu</p>
                         </div>
                     </nav>
                 </aside>
@@ -118,12 +124,18 @@
                                     <p class="software-resources-title">RAM</p>
                                     <div class="resources-graph-block">
                                         <div class="graph-img">
-                                            <object
-                                                    type="image/svg+xml"
-                                                    data="images/ram.svg">
-                                                <img
-                                                        src="images/ram.png">
-                                            </object>
+                                            <div class="progress-circle" data-progress="0" data-final="43">
+                                                <div class="circle">
+                                                    <div class="full progress-circle__slice">
+                                                        <div class="progress-circle__fill"></div>
+                                                    </div>
+                                                    <div class="progress-circle__slice">
+                                                        <div class="progress-circle__fill"></div>
+                                                        <div class="progress-circle__fill progress-circle__bar"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="progress-circle__overlay"></div>
+                                            </div>
                                         </div>
                                         <div class="resources">
                                             <p class="percent">43.20%</p>
@@ -135,12 +147,18 @@
                                     <p class="software-resources-title">CPU</p>
                                     <div class="resources-graph-block">
                                         <div class="graph-img">
-                                            <object
-                                                    type="image/svg+xml"
-                                                    data="images/cpu.svg">
-                                                <img
-                                                        src="images/cpu.png">
-                                            </object>
+                                            <div class="progress-circle" data-progress="0" data-final="76">
+                                                <div class="circle">
+                                                    <div class="full progress-circle__slice">
+                                                        <div class="progress-circle__fill"></div>
+                                                    </div>
+                                                    <div class="progress-circle__slice">
+                                                        <div class="progress-circle__fill"></div>
+                                                        <div class="progress-circle__fill progress-circle__bar"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="progress-circle__overlay"></div>
+                                            </div>
                                         </div>
                                         <div class="resources">
                                             <p class="percent">76.20%</p>
@@ -152,12 +170,18 @@
                                     <p class="software-resources-title">NET</p>
                                     <div class="resources-graph-block">
                                         <div class="graph-img">
-                                            <object
-                                                    type="image/svg+xml"
-                                                    data="images/net.svg">
-                                                <img
-                                                        src="images/net.png">
-                                            </object>
+                                            <div class="progress-circle" data-progress="0" data-final="100">
+                                                <div class="circle">
+                                                    <div class="full progress-circle__slice">
+                                                        <div class="progress-circle__fill"></div>
+                                                    </div>
+                                                    <div class="progress-circle__slice">
+                                                        <div class="progress-circle__fill"></div>
+                                                        <div class="progress-circle__fill progress-circle__bar"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="progress-circle__overlay"></div>
+                                            </div>
                                         </div>
                                         <div class="resources">
                                             <p class="percent">100.00%</p>
@@ -653,5 +677,8 @@
 
         </footer>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
 </html>
