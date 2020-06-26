@@ -321,26 +321,6 @@ header {
   margin-bottom: 37px;
   position: relative;
 }
-.content-block-container aside nav .nav-container.mobile-menu-close {
-  display: none;
-}
-@media screen and (max-width: 767px) {
-  .content-block-container aside nav .nav-container.mobile-menu-close {
-    display: flex;
-  }
-}
-.content-block-container aside nav .nav-container.mobile-menu-close p:before {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 24px;
-  background: url(../images/close.png) no-repeat;
-  background-size: contain;
-  background-position: center;
-  position: absolute;
-  left: -31px;
-  top: -2px;
-}
 .content-block-container aside nav a, .content-block-container aside nav p {
   opacity: .3;
   color: #3E445B;
@@ -1080,6 +1060,7 @@ header {
   background-size: contain;
   margin: 20px 30px;
   display: flex;
+  cursor: pointer;
 }
 
 .progress-circle {

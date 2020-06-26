@@ -21,9 +21,14 @@ $(document).ready(function(){
         $('.aside-block').addClass('show');
     });
 
-    $('.mobile-menu-close').click(function(){
-        $('.aside-block').removeClass('show');
-        $('.aside-block').addClass('hide');
+
+    $(document).mouseup(function (e){
+        let aside = $(".aside-block");
+        if (!aside.is(e.target)
+            && aside.has(e.target).length === 0
+            && aside.hasClass('show')) {
+            aside.removeClass('show').addClass('hide'); // скрываем его
+        }
     });
 
     $('.login-block').on("mouseover", function () {
