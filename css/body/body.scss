@@ -651,6 +651,7 @@
           position: relative;
           margin-right: 24px;
           cursor: pointer;
+          transition: .3s linear;
 
           &:last-child{
             margin-right: 0;
@@ -666,7 +667,7 @@
             transform: matrix(-1, 0, 0, 1, 0, 0);
             bottom: -10px;
             left: 0;
-            transition: .3s;
+            transition: .3s linear;
           }
         }
       }
